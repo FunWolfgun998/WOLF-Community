@@ -7,6 +7,9 @@ RUN docker-php-ext-install pdo_mysql
 # Attiva la configurazione PHP predefinita per l'ambiente di produzione.
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
+# Abilita il modulo mod_rewrite di Apache
+RUN a2enmod rewrite
+
 # Copia i file del progetto nella cartella da cui Apache serve le pagine web.
 COPY . /var/www/html
 

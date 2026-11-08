@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# IMPORTANTE: Se la richiesta è POST, NON fare il redirect (altrimenti perdi i dati del form!)
+RewriteCond %{REQUEST_METHOD} !POST
+RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
+RewriteRule ^ /%1 [NC,L,R=301]
+
+# Riscrive internamente /pagina in /pagina.php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L]

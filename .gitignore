@@ -1,0 +1,36 @@
+# ==========================================
+# 1. FILE SEGRETI E CREDENZIALI (FONDAMENTALE!)
+# ==========================================
+# Mai caricare le password reali sul web!
+.env
+
+# ==========================================
+# 2. DATI DEL DATABASE E FILE TEMPORANEI
+# ==========================================
+# Cartelle dati create da Docker per MySQL (se non usi volumi con nome)
+mysql_data/
+dati_mysql/
+*.sql.gz
+
+# ==========================================
+# 3. UPLOAD DEGLI UTENTI (Foto, articoli, allegati)
+# ==========================================
+# Ignora tutte le immagini caricate nei test, ma tieni la cartella uploads
+uploads/*
+!uploads/.gitkeep
+pages/uploads/*
+!pages/uploads/.gitkeep
+
+# ==========================================
+# 4. FILE DI SISTEMA E DELL'IDE
+# ==========================================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ==========================================
+# 5. LOG E VENDOR (se usi Composer in futuro)
+# ==========================================
+*.log
+vendor/
